@@ -1,0 +1,51 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+  background-color: black !important;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.card {
+  margin: auto;
+}
+#logo {
+  float: left;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  color: #fff ;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.jumbo {
+  background-image: asset-url('cityBanner.jpg');
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: red;
+}
+
+body {
+  height: 100%;
+}

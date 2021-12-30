@@ -1,24 +1,23 @@
-<h1>Articles List</h1>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |n| %>
-        <tr>
-          <td><%= n.id %></td>
-          <td><%= n.title %></td>
-          <td><%= n.description %></td>
-          <td><%= link_to 'Show', article_path(n.id) %></td>
-          <td><%= link_to 'Edit', edit_article_path(n.id) %></td>
-          <td><%= link_to 'Delete', article_path(n.id), method: :delete, data: {confirm: "Are you sure"} %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1 class="text-center mt-4">Articles List</h1>
+
+<% @articles.each do |n| %>
+
+  <div class="card text-center mb-3 mt-3", style="width: 70rem; height: 30rem;">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= n.title %></h5>
+      <p class="card-text"><%= n.description %></p>
+      <%= link_to 'Show', article_path(n.id), :class => "btn btn-primary" %>
+      <%= link_to 'Edit', edit_article_path(n.id), :class => "btn btn-primary" %>
+      <%= link_to 'Delete', article_path(n.id), method: :delete, data: {confirm: "Are you sure"}, :class => "btn btn-primary" %>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+
+<% end %>
+
 <p><%= link_to 'Create new Article', new_article_path %></p>

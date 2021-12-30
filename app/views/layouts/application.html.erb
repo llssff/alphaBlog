@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AlphaBlog</title>
+    <title>Alpha Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,13 @@
   </head>
 
   <body>
-    <br/>
+    <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
+  <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Github @llssff</small>
+    </div>
+  </footer>
 </html>
