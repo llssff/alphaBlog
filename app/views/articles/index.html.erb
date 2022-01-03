@@ -1,11 +1,8 @@
 <h1 class="text-center mt-4">Articles List</h1>
-
+<p><%= link_to 'Create new Article', new_article_path %></p>
 <% @articles.each do |n| %>
 
   <div class="card text-center mb-3 mt-3", style="width: 70rem; height: 30rem;">
-    <div class="card-header">
-      Featured
-    </div>
     <div class="card-body">
       <h5 class="card-title"><%= n.title %></h5>
       <p class="card-text"><%= n.description %></p>
@@ -14,10 +11,8 @@
       <%= link_to 'Delete', article_path(n.id), method: :delete, data: {confirm: "Are you sure"}, :class => "btn btn-primary" %>
     </div>
     <div class="card-footer text-muted">
-      2 days ago
+      <%= (Time.now - n.created_at).to_i / 86400 %> days ago
     </div>
   </div>
 
 <% end %>
-
-<p><%= link_to 'Create new Article', new_article_path %></p>

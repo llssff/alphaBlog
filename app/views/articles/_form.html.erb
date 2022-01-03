@@ -5,18 +5,29 @@
   <% end %>
   </ul>
 <% end %>
-<%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %>
-    <br/>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <br/>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="container" style="width: 50%">
+      <%= form_with(model: @article, class: "shadow p-3 mb-5 bg-white rounded", local: true) do |f| %>
+        <div class="form-floating mb-3">
+          <%= f.text_field :title, class: "form-control rounded-0", placeholder:"Some Title" %>
+          <%= f.label :title, for: "floatingInput", class:"form-label" %>
+        </div>
+        <div class="form-floating mb-3">
+          <%=
+            f.text_area :description,
+            class:"form-control rounded-0",
+            placeholder:"Some description",
+            rows: 12,
+            id:"comment",
+            style: "height: 100%"
+          %>
+          <%= f.label :description, for:"comment" %>
+        </div>
+        <div class="text-center">
+          <%= f.submit type:"submit" ,class:"btn btn-primary" %>
+          <br/>
+          <br/>
+          <%= link_to 'Back to Index', articles_path, class: "btn btn-dark btn-sm" %>
+        </div>
+      <% end %>
+
+</div>
