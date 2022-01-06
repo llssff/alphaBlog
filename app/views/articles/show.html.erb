@@ -1,7 +1,17 @@
-<h1><strong>Title:</strong> <%= @article.title %> </h1>
-<h1><strong>Description:</strong> <%= @article.description %></h1>
-<p>
-  <%= link_to 'Edit', edit_article_path(@article.id) %>
-  <%= link_to 'Delete', article_path(@article.id), method: :delete, data: {confirm: "Are you sure"} %>
-</p>
-<%= link_to 'Back to Index', articles_path %>
+
+<div class="card text-center mb-3 mt-3", style="width: 70rem; height: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @article.title %></h5>
+      <p class="card-text"><%= @article.description %></p>
+      <%= link_to 'Edit', edit_article_path(@article.id), :class => "btn btn-primary" %>
+      <%= link_to 'Delete',
+       article_path(@article.id),
+        method: :delete,
+         data: {confirm: "Are you sure"},
+        class: "btn btn-danger"
+      %>
+    </div>
+    <div class="card-footer text-muted">
+      <%= (Time.now - @article.created_at).to_i / 86400 %> days ago
+    </div>
+</div>

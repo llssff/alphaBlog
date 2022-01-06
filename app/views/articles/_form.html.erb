@@ -1,12 +1,6 @@
-<% if @article.errors.any? %>
-  <ul>
-  <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors' %>
 <div class="container" style="width: 50%">
-      <%= form_with(model: @article, class: "shadow p-3 mb-5 bg-white rounded", local: true) do |f| %>
+      <%= form_with(model: @article, class: "shadow p-3 mb-5 bg-info rounded", local: true) do |f| %>
         <div class="form-floating mb-3">
           <%= f.text_field :title, class: "form-control rounded-0", placeholder:"Some Title" %>
           <%= f.label :title, for: "floatingInput", class:"form-label" %>
