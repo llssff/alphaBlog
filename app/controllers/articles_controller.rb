@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(validate_params)
+    @article.user = User.first
     if @article.save
       flash[:notice] = "Shit worked"
       redirect_to article_path(@article.id)
