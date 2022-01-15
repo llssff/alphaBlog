@@ -19,7 +19,7 @@
       %>
     </div>
     <div class="card-footer text-muted">
-      <%= (Time.now - n.created_at).to_i / 86400 %> days ago
+      <%= (Time.now - n.created_at).to_i / 86400 %> days ago, By <%= n.user.username %>
     </div>
   </div>
 
