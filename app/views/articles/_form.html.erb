@@ -1,4 +1,4 @@
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @article %>
 <div class="container" style="width: 50%">
       <%= form_with(model: @article, class: "shadow p-3 mb-5 bg-info rounded", local: true) do |f| %>
         <div class="form-floating mb-3">
