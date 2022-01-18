@@ -26,7 +26,7 @@
           <%= f.label :password, for:"password" %>
         </div>
         <div class="text-center">
-          <%= f.submit "Sign up", type:"submit" ,class:"btn btn-primary" %>
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update", type:"submit" ,class:"btn btn-primary") %>
           <br/>
           <br/>
           <%= link_to 'Back to Index', articles_path, class: "btn btn-dark btn-sm" %>
