@@ -3,24 +3,6 @@
 <div class="text-center">
   <%= link_to 'Create new Article', new_article_path, class:"btn btn-outline-primary mg-auto" %>
 </div>
-<% @articles.each do |n| %>
-
-  <div class="card text-center mb-3 mt-3", style="width: 70rem; height: 30rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= n.title %></h5>
-      <p class="card-text"><%= n.description %></p>
-      <%= link_to 'Show', article_path(n.id), :class => "btn btn-primary" %>
-      <%= link_to 'Edit', edit_article_path(n.id), :class => "btn btn-primary" %>
-      <%= link_to 'Delete',
-       article_path(n.id),
-        method: :delete,
-         data: {confirm: "Are you sure"},
-        class: "btn btn-danger"
-      %>
-    </div>
-    <div class="card-footer text-muted">
-      <%= (Time.now - n.created_at).to_i / 86400 %> days ago, By <%= n.user.username %>
-    </div>
-  </div>
-
+<% @articles.each do |article| %>
+  <%= render 'shared/article', show: true, obj: article %>
 <% end %>
