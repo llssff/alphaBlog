@@ -1,0 +1,19 @@
+
+<div class="card text-center mb-3 mt-3", style="width: 70rem; height: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= obj.username %></h5>
+      <p class="card-text"><%= obj.email %></p>
+      <p class="card-text"><%= obj.articles.size %> articles written</p>
+      <%= link_to 'Show', user_path(obj.id), :class => "btn btn-primary" %>
+      <%= link_to 'Edit', edit_user_path(obj.id), :class => "btn btn-primary" %>
+      <%= link_to 'Delete',
+       user_path(obj.id),
+        method: :delete,
+         data: {confirm: "Are you sure"},
+        class: "btn btn-danger"
+      %>
+    </div>
+    <div class="card-footer text-muted">
+      They've' been here for <%=  (Time.now - obj.created_at).to_i / 86400 %> days
+    </div>
+</div>

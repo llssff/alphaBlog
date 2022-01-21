@@ -1,4 +1,8 @@
 <h1 class="text-center mt4"><%= @user.username %></h1>
+<div class="text-center mt-4" role="group">
+      <%= link_to 'Edit your profile', edit_user_path(@user.id),
+       :class => "btn btn-outline-info" %>
+</div>
 <h3 class="text-center mt-4">Articles</h3>
 <% @articles.each do |article| %>
   <%= render 'shared/article', show: true, obj: article %>
