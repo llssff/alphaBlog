@@ -1,3 +1,6 @@
 <% @users.each do |user| %>
   <%= render 'card', obj: user %>
 <% end %>
+<div class="apple_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
