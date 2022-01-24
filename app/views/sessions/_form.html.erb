@@ -1,0 +1,31 @@
+<div class="container" style="width: 50%">
+      <%= form_with(scope: :session, url: login_path, class: "shadow p-3 mb-5 bg-info rounded", local: true) do |f| %>
+        <div class="form-floating mb-3">
+          <%=
+            f.email_field :email,
+            class:"form-control rounded-0",
+            placeholder:"Your email here",
+            id:"email",
+            style: "height: 100%"
+          %>
+          <%= f.label :email, for:"email" %>
+        </div>
+        <div class="form-floating mb-3">
+          <%=
+            f.password_field :password,
+            class:"form-control rounded-0",
+            placeholder:"Your password here",
+            id:"password",
+            style: "height: 100%"
+          %>
+          <%= f.label :password, for:"password" %>
+        </div>
+        <div class="text-center">
+          <%= f.submit("log in", type:"submit" ,class:"btn btn-primary") %>
+          <br/>
+          <br/>
+          <%= link_to 'Back to Articles', articles_path, class: "btn btn-dark btn-sm" %>
+        </div>
+      <% end %>
+
+</div>
