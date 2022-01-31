@@ -6,6 +6,7 @@
       <% if show %>
         <%= link_to 'Show', article_path(obj.id), :class => "btn btn-primary" %>
       <% end %>
+      <% if logged_in? && obj.user == current_user %>
       <%= link_to 'Edit', edit_article_path(obj.id), :class => "btn btn-primary" %>
       <%= link_to 'Delete',
        article_path(obj.id),
@@ -13,6 +14,7 @@
          data: {confirm: "Are you sure"},
         class: "btn btn-danger"
       %>
+      <% end %>
     </div>
     <div class="card-footer text-muted">
       <%=
