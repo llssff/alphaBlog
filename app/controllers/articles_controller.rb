@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :edit_perm_check, only: [:update, :edit, :destroy]
+
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
   end
@@ -50,6 +53,13 @@ class ArticlesController < ApplicationController
 
   def validate_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def edit_perm_check
+    if current_user != @article.user
+      flash[:alert] = "you do not have permission to edit this article"
+      redirect_to @article
+    end
   end
 
 end
