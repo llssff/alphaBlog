@@ -1,7 +1,18 @@
 <h1 class="text-center mt4"><%= @user.username %></h1>
-<div class="text-center mt-4" role="group">
+<% if @user.admin > 0 %>
+  <span class="mt4">Welcome</span> <span class="mt4 text-warning"> admin </span><span class ="text-info">(LV<%= @user.admin %>)</span>
+<% end %>
+<div class="text-center role="group">
       <%= link_to 'Edit your profile', edit_user_path(@user.id),
        :class => "btn btn-outline-info" %>
+</div>
+<div class="text-center mt-2 role="group">
+  <%= link_to 'Delete Profile',
+    user_path(@user.id),
+    method: :delete,
+      data: {confirm: "Are you sure"},
+    class: "btn btn-danger"
+  %>
 </div>
 <h3 class="text-center mt-4">Articles</h3>
 <% @articles.each do |article| %>
