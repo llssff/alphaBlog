@@ -13,8 +13,24 @@
           <%= link_to "Users", users_path, class: "nav-link" %>
         </li>
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link"%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.username %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Show Profile", user_path(current_user), class: "dropdown-item"%></li>
+              <li><%= link_to 'Edit your profile', edit_user_path(@user.id),
+       :class => "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                  <%= link_to 'Delete Profile',
+                    user_path(@user.id),
+                    method: :delete,
+                      data: {confirm: "Are you sure"},
+                    class: "dropdown-item text-danger"
+                  %>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <%= link_to "Sign out", logout_path, class: "nav-link", method: :delete %>
@@ -27,6 +43,21 @@
             <%= link_to "Sign up", signup_path, class: "nav-link" %>
           </li>
         <% end %>
+        <% if logged_in? && @current_user.admin > 0 %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Promote User to Admin</a></li>
+            </ul>
+          </li>
+        <% end %>
+
+
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
