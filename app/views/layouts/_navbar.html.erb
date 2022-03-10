@@ -19,12 +19,12 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "Show Profile", user_path(current_user), class: "dropdown-item"%></li>
-              <li><%= link_to 'Edit your profile', edit_user_path(@user.id),
+              <li><%= link_to 'Edit your profile', edit_user_path(current_user),
        :class => "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                   <%= link_to 'Delete Profile',
-                    user_path(@user.id),
+                    user_path(current_user),
                     method: :delete,
                       data: {confirm: "Are you sure"},
                     class: "dropdown-item text-danger"

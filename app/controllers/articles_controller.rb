@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit_perm_check
-    if current_user != @article.user
+    if current_user != @article.user && current_user.admin < 2
       flash[:alert] = "you do not have permission to edit this article"
       redirect_to @article
     end

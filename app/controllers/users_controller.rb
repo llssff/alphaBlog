@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def edit_perm_check
-    if current_user != @user
+    if current_user != @user && current_user.admin < 2
       flash[:alert] = "You can only edit your own account"
       redirect_to @user
     end
